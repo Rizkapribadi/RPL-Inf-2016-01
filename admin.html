@@ -1,8 +1,8 @@
-<!-- === BEGIN HEADER === -->
+<?php 
+	include "conn.php";
+?>
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!-->
+
 <html lang="en">
     <!--<![endif]-->
     <head>
@@ -93,9 +93,12 @@
                                         <li><a href="#"data-toggle="modal" data-target="#name"></i> Konfirmasi ID</a></li>
                                     </ul>
                                 </li>
-                                        
+								
+                                       <li>
+                                            <a href="data_kirim.php">Liat Data ID Barang</a>                                            
+                                        </li>  
                                         <li>
-                                            <a href="bantuan.html">Bantuan</a>                                            
+                                            <a href="FAQ.html">FAQ</a>                                            
                                         </li>   
 
 											 <li>
@@ -163,7 +166,7 @@
         <h4 class="modal-title" id="myModalLabel">Cek Barang</h4>
       </div>
       <div class="modal-body">
-	  <form class="form-signin" action="#" method="post">
+	  <form class="form-signin" action="proses_cek_barang.php" method="post">
 	  <div class="container">
                             <div class="row margin-vert-30">
                                 <!-- Login Box -->
@@ -220,36 +223,43 @@
                                 
 
                                 <div class="panel-body">
-								                                <p>Merigistrasi ID barang saat penerima menjemput barang </p>
-                      <form class="form-horizontal style-form" style="margin-top: 20px;"  name="form1" id="form1">
+								                                <p>Konfirmasi ID barang saat penerima sudah menjemput barang </p>
+                      <form class="form-signin" action="konfirmasi_id.php" method="post" class="form-horizontal style-form" style="margin-top: 20px;"  name="form1" id="form1">
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Nama Pengirim</label>
-                              <div class="col-sm-8">
-                                  <input name="nama" type="text" id="nama" class="form-control" placeholder="Nama Pengirim" autofocus="on" />
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Nama Penerima</label>
-                              <div class="col-sm-8">
-                                  <input name="nama2" type="text" id="nama2" class="form-control" placeholder="Nama Penerima" required />
-                                 
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">NO HP</label>
-                              <div class="col-sm-8">
-                                  <input name="no_hp" type="text" id="no_hp" class="form-control" placeholder="Nomor HP" required />
-                                  
-                          </div>
-                          </div>
+                              <div class="container">
+                            <div class="row margin-vert-30">
+                                <!-- Login Box -->
+                                <div class="col-md-6 col-md-offset-3 col-sm-offset-3">
+                                    <form class="login-page">
+                                        <div class="login-header margin-bottom-30">
+                                            <h2>Konfirmasi ID Barang</h2>
+															<p>Masukkan nomor ID barang dengan benar</p>
+                                        </div>
+                                        <div class="input-group margin-bottom-20">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-pencil"></i>
+                                            </span>
+                                            <input placeholder="ID Barang" class="form-control" type="text" required="required">
+                                        </div>
+                                        <div class="input-group margin-bottom-20">                                            
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                
+                                            </div>
+                                            <div class="col-md-6">
+                                                 <a onclick="return confirm ('Yakin mau konfirmasi ID barang?');" button class="btn btn-primary pull-right" type="submit" title="Konfirmasi Id barang" href="konfirmasi_id.php">Konfirmasi</button></a>
+                                            </div>
+                                        </div>                                       
+                                    </form>
+									</form>
+                                </div>
+	  
+    </div>
+	</div>
+  </div>
                           
-                          <div class="form-group" style="margin-bottom: 20px;">
-                              <label class="col-sm-2 col-sm-2 control-label"></label>
-                              <div class="col-sm-8">
-                                  <input type="submit" value="Periksa" class="btn btn-sm btn-primary" />&nbsp;
-	                             
-                              </div>
-                          </div>
+                          
                           <div style="margin-top: 20px;"></div>
                       </form>
                                 </div>
@@ -285,54 +295,54 @@
                                 
                                 
                                 <div class="panel-body">
-                      <form class="form-horizontal style-form" style="margin-top: 20px;"  name="form1" id="form1">
+                     <form class="form-horizontal style-form" style="margin-top: 20px;" action="insert_kirim.php" method="post" name="form1" id="form1">
+					  <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">ID Barang</label>
+                              <div class="col-sm-8">
+                                  <input name="id_barang" type="text" id="id_barang" class="form-control" placeholder="Tidak perlu di isi" autofocus="on" readonly="readonly" />
+                              </div>
+                          </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Nama Pengirim</label>
                               <div class="col-sm-8">
-                                  <input name="nama" type="text" id="nama" class="form-control" placeholder="Nama Pengirim" autofocus="on" />
+                                  <input name="nama_pengirim" type="text" id="nama_pengirim" class="form-control" placeholder="Nama Pengirim" autofocus="on" />
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">No Hp</label>
                               <div class="col-sm-8">
-                                  <input name="no_hp" type="text" id="no_hp" class="form-control" placeholder="Nomor HP" required />
+                                  <input name="no_hp1" type="text" id="no_hp1" class="form-control" placeholder="Nomor HP" required />
                                  
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Alamat</label>
                               <div class="col-sm-10">
-                                  <textarea rows="4" name="Alamat" id="alamat" class="form-control" placeholder="Alamat" cols="25"></textarea>
+                                  <textarea rows="4" name="alamat1" id="alamat1" class="form-control" placeholder="Alamat" cols="25"></textarea>
                                   
                               </div>
                           </div>
 						   <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Nama Penerima</label>
                               <div class="col-sm-8">
-                                  <input name="nama" type="text" id="nama" class="form-control" placeholder="Nama Penerima" autofocus="on" />
+                                  <input name="nama_penerima" type="text" id="nama_penerima" class="form-control" placeholder="Nama Penerima" autofocus="on" />
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">No Hp</label>
                               <div class="col-sm-8">
-                                  <input name="no_hp" type="text" id="no_hp" class="form-control" placeholder="Nomor HP" required />
+                                  <input name="no_hp2" type="text" id="no_hp2" class="form-control" placeholder="Nomor HP" required />
                                  
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Alamat</label>
                               <div class="col-sm-10">
-                                  <textarea rows="4" name="Alamat" id="alamat" class="form-control" placeholder="Alamat" cols="25"></textarea>
+                                  <textarea rows="4" name="alamat2" id="alamat2" class="form-control" placeholder="Alamat" cols="25"></textarea>
                                   
                               </div>
                           </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">ID Barang</label>
-                              <div class="col-sm-8">
-                                  <input name="id_barang" type="text" id="id_barang" class="form-control" placeholder="ID Barang" required />
-                                 
-                              </div>
-                          </div>
+                          
                           
                           <div class="form-group" style="margin-bottom: 20px;">
                               <label class="col-sm-2 col-sm-2 control-label"></label>
@@ -355,9 +365,12 @@
         </div><!-- ./wrapper -->
 	</div>		   
 			<!-- ./wrapper -->   
-
+</div>
+</div>
 			   
-		<!-- ./wrapper -->	   
+		<!-- ./wrapper -->	 
+
+		
 			   <!-- Tab Panes -->
                                 <div class="tab-content">
                                     <div class="tab-pane fade in active" id="home">
