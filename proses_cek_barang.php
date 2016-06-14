@@ -6,7 +6,7 @@
 <?php
 include "conn.php";
 
-	echo "<script>alert('BBarang belum sampai! Silahkan cek lagi nanti'); window.location = 'admin.html'</script>";	
+	echo "<script>alert('Barang sudah sampai!'); window.location = 'admin.html'</script>";	
 
 		
 
